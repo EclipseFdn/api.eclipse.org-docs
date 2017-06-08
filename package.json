@@ -1,0 +1,20 @@
+{
+  "name": "eclipse_api_documentation",
+  "version": "0.0.0",
+  "description": "api-blueprint based API documentation for eclipse_api_documentation",
+  "license": "MIT",
+  "author": {
+    "name": "Christopher Guindon"
+  },
+  "files": [
+    "dist/index.html"
+  ],
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-aglio": "^0.4.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.2",
+    "time-grunt": "^1.4.0"
+  }
+}
