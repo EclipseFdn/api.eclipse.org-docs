@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         aglio: {
             'all': {
-                'files': { 'dist/index.html': ['src/index.apib'] },
+                'files': { 'docs/index.html': ['src/index.apib'] },
                 'options': {
                     'theme': 'slate',
                     'separator': '\\n',
@@ -32,7 +32,7 @@ module.exports = function (grunt) {
             livereload: {
                 options: {
                     open: false,
-                    base: 'dist'
+                    base: 'docs'
                 }
             }
         }
