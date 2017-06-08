@@ -1,11 +1,25 @@
-# MarketPlace Favorites
+# Group Marketplace Favorites
 The Eclipse MarketPlace is a place to discover, share, and install relevant Eclipse plugins and solutions. 
 Think of it like an app store for Eclipse solutions.
 
-# Favorites [/marketplace/favorites]
-List of all the Eclipse MarketPlace Favorites.
+## Search Favorites [GET /marketplace/favorites{?name,page,pagesize}]
+Retrieve all favorites or retrieve favorites for a specific user.
 
-## Retrieve Favorites [GET /marketplace/favorites{content_id}{?name,page,pagesize}]
++ Parameters
+    + name (string, optional) - A valid Eclipse username.
+    + page (integer, optional) - The index of the page to get, defaults to 1.
+    + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
+
++ Response 200 (application/json)
+    + Headers
+        Link: <https://api.eclipse.org/marketplace/favorites?page=2&amp;pagesize=20>; rel="next", <https://api.eclipse.org/marketplace/favorites?page=74&amp;pagesize=20>; rel="last", <https://api.eclipse.org/marketplace/favorites?page=1&amp;pagesize=20>; rel="first", <https://api.eclipse.org/marketplace/favorites?page=1&amp;pagesize=20>; rel="self"
+
+    + Body
+    {"mpc_favorites":[{"content_id":"27025","count":"675","timestamp":"1496810996"},{"content_id":"979","count":"675","timestamp":"1496687525"},{"content_id":"1099","count":"627","timestamp":"1496642716"},{"content_id":"171","count":"572","timestamp":"1496728909"},{"content_id":"1336","count":"555","timestamp":"1496679696"},{"content_id":"114","count":"495","timestamp":"1496679631"},{"content_id":"1139","count":"446","timestamp":"1496642529"},{"content_id":"150","count":"410","timestamp":"1496397200"},{"content_id":"264","count":"391","timestamp":"1496473736"},{"content_id":"87","count":"387","timestamp":"1496628806"},{"content_id":"252","count":"379","timestamp":"1496133971"},{"content_id":"472922","count":"326","timestamp":"1496818171"},{"content_id":"1794107","count":"251","timestamp":"1496740337"},{"content_id":"156","count":"230","timestamp":"1496740410"},{"content_id":"2306961","count":"216","timestamp":"1496740308"},{"content_id":"3274405","count":"208","timestamp":"1496810921"},{"content_id":"1617241","count":"193","timestamp":"1496811003"},{"content_id":"206","count":"188","timestamp":"1495549869"},{"content_id":"194","count":"187","timestamp":"1496213815"},{"content_id":"339851","count":"187","timestamp":"1496628785"}],"total_result_count":1466,"range_since":0,"range_until":1496857301}
+
+## Retrieve Favorites [GET /marketplace/favorites/{content_id}{?name,page,pagesize}]
+Fetch favorites for a specific listing on Eclipse MarketPlace.
+
 + Parameters
     + content_id (string, optional) - Unique identifier of the listing, i.e, 123, 134.
     + name (string, optional) - A valid Eclipse username.
@@ -18,20 +32,6 @@ List of all the Eclipse MarketPlace Favorites.
 
     + Body
     {"mpc_favorites":[{"content_id":"27025","count":"675","timestamp":"1496810996"},{"content_id":"979","count":"675","timestamp":"1496687525"},{"content_id":"1099","count":"627","timestamp":"1496642716"},{"content_id":"171","count":"572","timestamp":"1496728909"},{"content_id":"1336","count":"555","timestamp":"1496679696"},{"content_id":"114","count":"495","timestamp":"1496679631"},{"content_id":"1139","count":"446","timestamp":"1496642529"},{"content_id":"150","count":"410","timestamp":"1496397200"},{"content_id":"264","count":"391","timestamp":"1496473736"},{"content_id":"87","count":"387","timestamp":"1496628806"},{"content_id":"252","count":"379","timestamp":"1496133971"},{"content_id":"472922","count":"326","timestamp":"1496818171"},{"content_id":"1794107","count":"251","timestamp":"1496740337"},{"content_id":"156","count":"230","timestamp":"1496740410"},{"content_id":"2306961","count":"216","timestamp":"1496740308"},{"content_id":"3274405","count":"208","timestamp":"1496810921"},{"content_id":"1617241","count":"193","timestamp":"1496811003"},{"content_id":"206","count":"188","timestamp":"1495549869"},{"content_id":"194","count":"187","timestamp":"1496213815"},{"content_id":"339851","count":"187","timestamp":"1496628785"}],"total_result_count":1466,"range_since":0,"range_until":1496857301}
-
-## Search Favorites [GET /marketplace/favorites{?name,page,pagesize}]
-+ Parameters
-    + name (string, optional) - A valid Eclipse username.
-    + page (integer, optional) - The index of the page to get, defaults to 1.
-    + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
-
-+ Response 200 (application/json)
-    + Headers
-        Link: <https://api.eclipse.org/marketplace/favorites?page=2&amp;pagesize=20>; rel="next", <https://api.eclipse.org/marketplace/favorites?page=74&amp;pagesize=20>; rel="last", <https://api.eclipse.org/marketplace/favorites?page=1&amp;pagesize=20>; rel="first", <https://api.eclipse.org/marketplace/favorites?page=1&amp;pagesize=20>; rel="self"
-
-    + Body
-    {"mpc_favorites":[{"content_id":"27025","count":"675","timestamp":"1496810996"},{"content_id":"979","count":"675","timestamp":"1496687525"},{"content_id":"1099","count":"627","timestamp":"1496642716"},{"content_id":"171","count":"572","timestamp":"1496728909"},{"content_id":"1336","count":"555","timestamp":"1496679696"},{"content_id":"114","count":"495","timestamp":"1496679631"},{"content_id":"1139","count":"446","timestamp":"1496642529"},{"content_id":"150","count":"410","timestamp":"1496397200"},{"content_id":"264","count":"391","timestamp":"1496473736"},{"content_id":"87","count":"387","timestamp":"1496628806"},{"content_id":"252","count":"379","timestamp":"1496133971"},{"content_id":"472922","count":"326","timestamp":"1496818171"},{"content_id":"1794107","count":"251","timestamp":"1496740337"},{"content_id":"156","count":"230","timestamp":"1496740410"},{"content_id":"2306961","count":"216","timestamp":"1496740308"},{"content_id":"3274405","count":"208","timestamp":"1496810921"},{"content_id":"1617241","count":"193","timestamp":"1496811003"},{"content_id":"206","count":"188","timestamp":"1495549869"},{"content_id":"194","count":"187","timestamp":"1496213815"},{"content_id":"339851","count":"187","timestamp":"1496628785"}],"total_result_count":1466,"range_since":0,"range_until":1496857301}
-
 
 ## Favorite List [/marketplace/favorites/{content_id}]
 Add or remove listings from a user favorite list.
