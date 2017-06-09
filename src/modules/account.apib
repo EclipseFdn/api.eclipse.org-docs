@@ -1,0 +1,76 @@
+# Group User Profiles
+User information is available trought this resource. Some private information, 
+is included when authenticated through OAuth with the `profile` scope.
+
+## Current user [GET /account/profile]
+Retrieve profile information about current user.
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit:1000
+        X-Rate-Limit-Remaining:964
+        X-Rate-Limit-Reset:3553
+
+    + Body
+      [{"uid":"9","name":"cguindon","mail":"chris.guindon@eclipse-foundation.org","eca":{"signed":true},"is_committer":true,"friends":{"friend_id":"6104"},"first_name":"Christopher","last_name":"Guindon","twitter_handle":"chrisguindon","org":"Eclipse Foundation","job_title":"Lead Web Application Developper","website":"http://www.chrisguindon.com/","country":{"code":"CA","name":"Canada"},"bio":"Hello world! When I am not at a computer, which is rare, I spend my time playing the drums, watching hockey or at the top of a hill snowboarding. I am also very passionate about music and live concerts!","interests":["Snowboarding","webdev","php","javascript","Drums"]}]
+      
+## Retrive user [GET /account/profile/{name}]
+Retrieve profile information about current user.
+
++ Parameters
+    + name (string, optional) - A valid Eclipse username.
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit:1000
+        X-Rate-Limit-Remaining:964
+        X-Rate-Limit-Reset:3553
+
+    + Body
+      {"uid":"9","name":"cguindon","mail":"chris.guindon@eclipse-foundation.org","eca":{"signed":true},"is_committer":true,"friends":{"friend_id":"6104"},"first_name":"Christopher","last_name":"Guindon","twitter_handle":"chrisguindon","org":"Eclipse Foundation","job_title":"Lead Web Application Developper","website":"http://www.chrisguindon.com/","country":{"code":"CA","name":"Canada"},"bio":"Hello world! When I am not at a computer, which is rare, I spend my time playing the drums, watching hockey or at the top of a hill snowboarding. I am also very passionate about music and live concerts!","interests":["Snowboarding","webdev","php","javascript","Drums"]}
+      
+## Forum posts [GET /account/profile/{name}/forum]
+This method returns forum post associated with a user.
+
++ Parameters
+    + name (string, optional) - A valid Eclipse username.
+
++ Response 200 (application/json)
+    + Headers
+        Link: <https://api.eclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="first", <https://api.eclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="self"
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+
+    + Body
+      {"id":"125133","alias":"Christopher Guindon","avatar_loc":null,"email":"chris.guindon@eclipse-foundation.org","posted_msg_count":"2","join_date":"1329944087","location":null,"sig":null,"last_visit":"1489180635","level_name":"Junior Member","level_img":null,"posts":[{"msg_id":"1385038","msg_thread_id":"781490","msg_poster_id":"125133","msg_reply_to":"0","msg_post_stamp":"1401828571","msg_update_stamp":"0","msg_updated_by":"0","msg_subject":"sdfdsf","thread_id":"781490","thread_forum_id":"97","thread_root_msg_id":"1385038","thread_last_post_date":"1490969896","thread_replies":"6","thread_views":"8925","thread_rating":"0","thread_n_rating":"0","thread_last_post_id":"1758673","thread_orderexpiry":"0","thread_thread_opt":"0","thread_tdescr":"","forum_name":"Test","forum_cat_id":"3","forum_description":"Forum for testing messages. This is <b>UNRELATED to testing with Eclipse</b>.  Use the <a href='http://www.eclipse.org/forums/eclipse.tptp'>Test and Performance forum</a> for those discussions instead.","forum_date_created":"1248707241","forum_thread_count":"975","forum_post_count":"1526","forum_last_post_id":"1764500","cat_name":"General (non-technical)","cat_description":" - Click +/- to expand/collapse","read_last_view":null,"last_msg_poster_id":"216471","last_msg_subject":"Re: sdfdsf","last_msg_post_stamp":"1490969896","last_msg_update_stamp":"0","last_poster_email":"m.amjadi@engineer.com","last_poster_alias":"Mohammad H. Amir Amjadi","root_msg_poster_id":"125133","root_msg_subject":"sdfdsf","root_msg_post_stamp":"1401828571","root_msg_update_stamp":"0","root_poster_email":"chris.guindon@eclipse-foundation.org","root_poster_alias":"Christopher Guindon","last_user_msg_poster_id":"125133","last_user_msg_subject":"sdfdsf","last_user_msg_stamp":"1401828571","msg4_update_stamp":"0","msg_group_post_stamp":"1479327581"}]}
+
+## Project Relationship [GET /account/profile/{name}/projects]
+This call returns a list of project affiliations for a particular user.
+
++ Parameters
+    + name (string, optional) - A valid Eclipse username.
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+
+    + Body
+      {"technology.cbi":[{"ActiveDate":"2014-12-15","InactiveDate":null,"EditBugs":"0","ProjectName":"Common Build Infrastructure","url":"https://projects.eclipse.org/projects/technology.cbi","Relation":{"Relation":"CM","Description":"Committer","IsActive":"1","Type":{"Type":"PR","Description":"Person - Project"}}}],"technology.usssdk":[{"ActiveDate":"2016-09-21","InactiveDate":null,"EditBugs":"0","ProjectName":"Eclipse USS SDK","url":"https://projects.eclipse.org/projects/technology.usssdk","Relation":{"Relation":"CM","Description":"Committer","IsActive":"1","Type":{"Type":"PR","Description":"Person - Project"}}},{"ActiveDate":"2016-09-21","InactiveDate":null,"EditBugs":"0","ProjectName":"Eclipse USS SDK","url":"https://projects.eclipse.org/projects/technology.usssdk","Relation":{"Relation":"PL","Description":"Project Lead","IsActive":"1","Type":{"Type":"PR","Description":"Person - Project"}}}],"foundation-internal":[{"ActiveDate":"2012-12-21","InactiveDate":null,"EditBugs":"0","ProjectName":"Internal Foundation Projects","url":"","Relation":{"Relation":"CM","Description":"Committer","IsActive":"1","Type":{"Type":"PR","Description":"Person - Project"}}}]}
+
+## Gerrit review count [GET /account/profile/{name}/gerrit]
+This method returns gerrit review count for a user.
+
++ Parameters
+    + name (string, optional) - A valid Eclipse username.
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+
+    + Body
+       {"merged_changes_count":"671"}

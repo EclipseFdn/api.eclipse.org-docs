@@ -4,6 +4,9 @@ HOST: https://api.eclipse.org
 # Eclipse Api RESTful API
 Eclipse Fountation resources and data.
 
+### Rate Limit
+This API currently limits users to 1000 authenticated requests and 1000 anonymous requests an hour.
+
 ### Authentication
 *Eclipse Api RESTful API* uses OAuth2 Authorization for protected resources.
 
@@ -11,5 +14,6 @@ Eclipse Fountation resources and data.
 The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) 
 are used.
 
+<!-- include(modules/account.apib) -->
 <!-- include(modules/marketplace_favorites.apib) -->
 <!-- include(modules/oauth2.apib) -->
