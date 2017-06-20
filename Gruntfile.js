@@ -6,9 +6,12 @@ module.exports = function (grunt) {
             'all': {
                 'files': { 'docs/index.html': ['src/index.apib'] },
                 'options': {
-                    'theme': 'slate',
+                    'theme': 'default',
                     'separator': '\\n',
-                    'includePath': 'src'
+                    'includePath': 'src',
+                    'themeTemplate': 'templates/index.jade',
+                    //'themeFullWidth': true,
+                    'themeStyle': 'styles/styles.less'
                 }
             }
         },
@@ -17,7 +20,9 @@ module.exports = function (grunt) {
                 'files': [
                     'src/**/*.apib',
                     'src/**/*.md',
-                    'src/**/*.json'
+                    'src/**/*.json',
+                    'templates/*',
+                    'styles/*'
                 ],
                 'tasks': ['aglio'],
                 'options': { 'livereload': '<%= connect.options.livereload %>' }

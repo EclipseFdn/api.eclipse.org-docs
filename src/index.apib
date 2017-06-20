@@ -10,7 +10,7 @@ This API currently limits users to 1000 authenticated requests and 1000 anonymou
 ### Pagination
 Information about pagination is provided in the Link header of an API call. For example, let’s make 
 a curl request to the eclipse_profile API, to find out how many org_eclipse_oomph records exist for the user:
- 
+
 ```curl -I "https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&pagesize=2"```
  
 The -I parameter indicates that we only care about the headers, not the content. 

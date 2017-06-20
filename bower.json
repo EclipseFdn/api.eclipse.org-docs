@@ -1,0 +1,28 @@
+{
+  "name": "eclipse_api_documentation",
+  "description": "api-blueprint based API documentation for eclipse_api_documentation",
+  "main": "gruntfile.js",
+  "authors": [
+    "Christopher Guindon chris.guindon@eclipse-foundation.org"
+  ],
+  "license": "EPL",
+  "keywords": [
+    "Eclipse",
+    "API",
+    "Eclipse",
+    "Foundation",
+    "REST"
+  ],
+  "homepage": "https://github.com/chrisguindon/eclipse_api",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "solstice": "https://github.com/EclipseFdn/solstice-assets.git"
+  }
+}
