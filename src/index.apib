@@ -1,8 +1,10 @@
 FORMAT: 1A
 HOST: https://api.eclipse.org
 
-# Eclipse Api RESTful API
-Eclipse Fountation resources and data.
+# Eclipse RESTful API
+This describes the resources that make up the official Eclipse Foundation REST API. 
+
+If you have any problems or requests please contact [Christopher Guindon](mailto:chris.guindon@eclipse-foundation.org) .
 
 ### Rate Limit
 This API currently limits users to 1000 authenticated requests and 1000 anonymous requests an hour.
@@ -16,7 +18,9 @@ a curl request to the eclipse_profile API, to find out how many org_eclipse_oomp
 The -I parameter indicates that we only care about the headers, not the content. 
 In examining the result, you’ll notice some information in the Link header that looks like this:
  
-```<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=2&amp;pagesize=2>; rel="next", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=27&amp;pagesize=2>; rel="last", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel="first", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel="self"```
+```
+<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=2&amp;pagesize=2>; rel="next", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=27&amp;pagesize=2>; rel="last", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel="first", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel="self"
+```
  
 Let’s break that down. rel="next" says that the next page is page=2. This makes sense, since by default, 
 all paginated queries start at page 1. rel="last" provides some more information, stating that the last page of results is on page 27. 

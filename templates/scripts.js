@@ -138,7 +138,7 @@ function refresh(body) {
   collapses them.
 */
 function autoCollapse() {
-  var windowHeight = getWindowDimensions()[1];
+  var windowHeight = (getWindowDimensions()[1])-150;
   var itemsHeight = 64; /* Account for some padding */
   var itemsArray = Array.prototype.slice.call(
     document.querySelectorAll('nav .resource-group .heading'));
@@ -148,19 +148,27 @@ function autoCollapse() {
     itemsHeight += item.parentNode.offsetHeight;
   });
 
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
 
-  var sortedItems = itemsArray;
-
-  while (sortedItems.length) {
-    for (var i = 1; i < sortedItems.length+1; i++) {
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
       // Will collapsing this item help?
       var itemHeight = sortedItems[i].nextSibling.offsetHeight;
-  
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
         itemsHeight -= itemHeight;
         toggleCollapseNav({target: sortedItems[i].children[0]}, true);
         sortedItems.splice(i, 1);
         break;
-     
+      }
     }
   }
 }

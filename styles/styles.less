@@ -1,6 +1,24 @@
 @import url("../bower_components/solstice/stylesheets/_core/barebone/styles.less");
 
 header.thin-header{
-  border-bottom:none;
+  position:fixed;
+  width:100%;
+  margin:0;
+  top:0;
+  background:#fff;
+  z-index:999;
+  @media (min-width: 768px) { 
+    padding:10px;
+  }
+  boder-color:#D9D9D5;
+}
+body,html{
+	padding:0;
+	margin:0;
 }
 
+nav,
+.container-content{
+  margin-top:65px;
+  padding-left:15px;
+}

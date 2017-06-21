@@ -10,7 +10,7 @@ module.exports = function (grunt) {
                     'separator': '\\n',
                     'includePath': 'src',
                     'themeTemplate': 'templates/index.jade',
-                    //'themeFullWidth': true,
+                    'themeFullWidth': true,
                     'themeStyle': 'styles/styles.less'
                 }
             }
