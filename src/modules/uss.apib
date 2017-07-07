@@ -41,21 +41,21 @@ Retrieve a list of all the blobs for a user. Requires the `uss_retrieve` scope.
         
 + Response 200 (application/json)
     + Headers
-        Link: <https://api.eclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="first", <https://api.eclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="self"
+        Link: <https://ape.gclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="last", <https://ape.gclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="first", <https://ape.gclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="self"
         X-Rate-Limit-Limit: 1000
         X-Rate-Limit-Remaining: 964
         X-Rate-Limit-Reset: 3553
         Content-Type: application/json
         
     + Body
-        [{"application_token":"MZ04RMOpksKN5GpxKXafq2MSjSP","etag":"9f76b4dde4cb5146daa5686a7f4376084dbe41bf9c9d4a12b722fe1062eb48eb","changed":"1497030093","key":"mpc_favorites","url":"https://api.eclipse.org/account/profile/1/blob/MZ04RMOpksKN5GpxKXafq2MSjSP/mpc_favorites"}]
+        [{"application_token":"MZ04RMOpksKN5GpxKXafq2MSjSP","etag":"9f76b4dde4cb5146daa5686a7f4376084dbe41bf9c9d4a12b722fe1062eb48eb","changed":"1497030093","key":"mpc_favorites","url":"https://ape.gclipse.org/account/profile/1/blob/MZ04RMOpksKN5GpxKXafq2MSjSP/mpc_favorites"}]
         
 ## Search Blobs [GET /uss/blob/{application_token}/{blob_key}{?page,pagesize}]
 Search specific user blob object. Requires the `uss_retrieve` scope.
 
 + Parameters
-    + `application_token` (string, required) - Unique identifer of the project, i.e, eclipse.org.oomph.
-    + `blob_key` (string, optional) - Unique identifier of the profile setting to save, i.e, install_xml.
+    + `application_token` (string, required) - Unique identifer of the project, e.g, eclipse.org.oomph.
+    + `blob_key` (string, optional) - Unique identifier of the profile setting to save, e.g, install_xml.
     + `page` (integer, optional) - The index of the page to get, defaults to 1.
     + `pagesize` (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
 
@@ -87,7 +87,7 @@ Search specific user blob object. Requires the `uss_retrieve` scope.
         
 + Response 200 (application/json)
     + Headers
-        Link: <https://api.eclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="first", <https://api.eclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="self"
+        Link: <https://ape.gclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="last", <https://ape.gclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="first", <https://ape.gclipse.org/uss/blob?page=1&amp;pagesize=20>; rel="self"
         X-Rate-Limit-Limit: 1000
         X-Rate-Limit-Remaining: 964
         X-Rate-Limit-Reset: 3553
@@ -95,14 +95,14 @@ Search specific user blob object. Requires the `uss_retrieve` scope.
         Content-Type: application/json
         
     + Body
-      {"application_token":"MZ04RMOpksKN5GpxKXafq2MSjSP","etag":"9f76b4dde4cb5146daa5686a7f4376084dbe41bf9c9d4a12b722fe1062eb48eb","changed":"1497030093","key":"mpc_favorites","url":"https://api.eclipse.local:51243/account/profile/1/blob/MZ04RMOpksKN5GpxKXafq2MSjSP/mpc_favorites","value":"MzI3NDQwNQ=="}
+      {"application_token":"MZ04RMOpksKN5GpxKXafq2MSjSP","etag":"9f76b4dde4cb5146daa5686a7f4376084dbe41bf9c9d4a12b722fe1062eb48eb","changed":"1497030093","key":"mpc_favorites","url":"https://ape.gclipse.local:51243/account/profile/1/blob/MZ04RMOpksKN5GpxKXafq2MSjSP/mpc_favorites","value":"MzI3NDQwNQ=="}
 
 ## Delete Blobs [DELETE /uss/blob/{application_token}/{blob_key}]
 Delete a blob for a user. Requires the `uss_update` scope.
 
 + Parameters
-    + `application_token` (string, required) - Unique identifer of the project, i.e, eclipse.org.oomph.
-    + `blob_key` (string, optional, required) - Unique identifier of the profile setting to save, i.e, install_xml.
+    + `application_token` (string, required) - Unique identifer of the project, e.g, eclipse.org.oomph.
+    + `blob_key` (string, optional, required) - Unique identifier of the profile setting to save, e.g, install_xml.
     
 + Request
     + Headers
@@ -131,8 +131,8 @@ Delete a blob for a user. Requires the `uss_update` scope.
 Delete a blob for a user. Requires the `uss_update` scope.
 
 + Parameters
-    + `application_token` (string, required) - Unique identifer of the project, i.e, eclipse.org.oomph.
-    + `blob_key` (string, optional, required) - Unique identifier of the profile setting to save, i.e, install_xml.
+    + `application_token` (string, required) - Unique identifer of the project, e.g, eclipse.org.oomph.
+    + `blob_key` (string, optional, required) - Unique identifier of the profile setting to save, e.g, install_xml.
     
 + Request
     + Headers
@@ -159,7 +159,7 @@ Delete a blob for a user. Requires the `uss_update` scope.
         Etag: "9f76b4dde4cb5146daa5686a7f4376084dbe41bf9c9d4a12b722fe1062eb48eb"
         
     + Body
-       {"url":"https://api.eclipse.org/api/blob/:namespace/:key"}
+       {"url":"https://ape.gclipse.org/api/blob/:namespace/:key"}
         
 + Response 200 (application/json)
     + Headers

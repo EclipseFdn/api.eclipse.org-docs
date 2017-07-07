@@ -14,7 +14,7 @@ Retrieve profile information about current user.
     + Body
       [{"uid":"9","name":"cguindon","mail":"chris.guindon@eclipse-foundation.org","eca":{"signed":true},"is_committer":true,"friends":{"friend_id":"6104"},"first_name":"Christopher","last_name":"Guindon","twitter_handle":"chrisguindon","org":"Eclipse Foundation","job_title":"Lead Web Application Developper","website":"http://www.chrisguindon.com/","country":{"code":"CA","name":"Canada"},"bio":"Hello world! When I am not at a computer, which is rare, I spend my time playing the drums, watching hockey or at the top of a hill snowboarding. I am also very passionate about music and live concerts!","interests":["Snowboarding","webdev","php","javascript","Drums"]}]
       
-## Retrive user [GET /account/profile/{name}]
+## Retrieve user [GET /account/profile/{name}]
 Retrieve profile information about current user.
 
 + Parameters
@@ -29,7 +29,7 @@ Retrieve profile information about current user.
     + Body
       {"uid":"9","name":"cguindon","mail":"chris.guindon@eclipse-foundation.org","eca":{"signed":true},"is_committer":true,"friends":{"friend_id":"6104"},"first_name":"Christopher","last_name":"Guindon","twitter_handle":"chrisguindon","org":"Eclipse Foundation","job_title":"Lead Web Application Developper","website":"http://www.chrisguindon.com/","country":{"code":"CA","name":"Canada"},"bio":"Hello world! When I am not at a computer, which is rare, I spend my time playing the drums, watching hockey or at the top of a hill snowboarding. I am also very passionate about music and live concerts!","interests":["Snowboarding","webdev","php","javascript","Drums"]}
 
-## Retrive user by mail [GET /account/profile/{?name}]
+## Retrieve user by mail [GET /account/profile/{?name}]
 Search for a user by mail.
 
 + Parameters
@@ -52,7 +52,7 @@ This method returns forum post associated with a user.
 
 + Response 200 (application/json)
     + Headers
-        Link: <https://api.eclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="first", <https://api.eclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="self"
+        Link: <https://ape.gclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="last", <https://ape.gclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="first", <https://ape.gclipse.org/account/profile/cguindon/forum?page=1&amp;pagesize=20>; rel="self"
         X-Rate-Limit-Limit: 1000
         X-Rate-Limit-Remaining: 964
         X-Rate-Limit-Reset: 3553
