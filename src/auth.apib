@@ -1,0 +1,19 @@
+FORMAT: 1A
+HOST: https://accounts.eclipse.org
+
+# Eclipse Authorization Server
+This describes the resources that make up the official Eclipse Authorization server. 
+
+If you have any problems or requests please contact [Christopher Guindon](mailto:chris.guindon@eclipse-foundation.org) .
+
+### Rate Limit
+This API currently limits users to 1000 authenticated requests and 1000 anonymous requests an hour.
+
+### Authentication
+*Eclipse Api RESTful API* uses OAuth2 Authorization for protected resources.
+
+### Error States
+The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) 
+are used.
+
+<!-- include(modules/oauth2.apib) -->
