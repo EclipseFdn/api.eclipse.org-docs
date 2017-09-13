@@ -29,11 +29,13 @@ Retrieve profile information about current user.
     + Body
       {"uid":"9","name":"cguindon","mail":"chris.guindon@eclipse-foundation.org","eca":{"signed":true},"is_committer":true,"friends":{"friend_id":"6104"},"first_name":"Christopher","last_name":"Guindon","twitter_handle":"chrisguindon","org":"Eclipse Foundation","job_title":"Lead Web Application Developper","website":"http://www.chrisguindon.com/","country":{"code":"CA","name":"Canada"},"bio":"Hello world! When I am not at a computer, which is rare, I spend my time playing the drums, watching hockey or at the top of a hill snowboarding. I am also very passionate about music and live concerts!","interests":["Snowboarding","webdev","php","javascript","Drums"]}
 
-## Retrieve user by mail [GET /account/profile/{?name}]
-Search for a user by mail.
+## Search for a user [GET /account/profile/{?uid,name,mail}]
+Search for a user by uid, name or mail. The uid will be used first, then the name and if no user was found, the server will try to load a user by mail.
 
 + Parameters
-    + name (string, optional) - A valid email.
+    + uid (integer, optional) - A valid User ID.
+    + name (string, optional) - A valid username.
+    + mail (string, optional) - A valid encoded mail.
 
 + Response 200 (application/json)
     + Headers
