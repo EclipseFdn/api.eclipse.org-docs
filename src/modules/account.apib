@@ -91,3 +91,18 @@ This method returns gerrit review count for a user.
 
     + Body
        {"merged_changes_count":"671"}
+
+## Mailing List Subscriptions [GET /account/profile/{name}/mailing-list]
+This method returns mailing list subscriptions for a user.
+
++ Parameters
+    + name (string) - A valid Eclipse username.
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+
+    + Body
+       {"mailing_list_subscriptions":[{"list_name":"epp-dev","list_description":"Eclipse Packaging Project"},{"list_name":"eclipse.org-webdev","list_description":"Eclipse.org Webdev notices and discussions"}]}
