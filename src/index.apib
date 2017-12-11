@@ -2,13 +2,16 @@ FORMAT: 1A
 HOST: https://api.eclipse.org
 
 # Eclipse RESTful API
+
 This describes the resources that make up the official Eclipse Foundation REST API.
 
 You can contribute to this document via our [git repository](https://github.com/chrisguindon/api.eclipse.org-docs).
 
 If you have any problems or requests please contact [Christopher Guindon](mailto:chris.guindon@eclipse-foundation.org).
 
-### Supported REST APIs
+### Other related REST APIs
+
+Althought they are not directly related to this API, the Eclipse forge proposes several other access points and APIs for specific tools and purposes. Please see the following resources for more details:
 
 + [Eclipse Bugzilla](https://bugs.eclipse.org/bugs) **([Documentation](https://wiki.mozilla.org/Bugzilla:REST_API))**
 + [Eclipse Gerrit](https://git.eclipse.org/r/) **([Documentation](https://gerrit-review.googlesource.com/Documentation/rest-api.html))**
@@ -16,9 +19,11 @@ If you have any problems or requests please contact [Christopher Guindon](mailto
 + [Eclipse Marketplace](http://marketplace.eclipse.org/) **([Documentation](https://wiki.eclipse.org/Marketplace/REST))**
 
 ### Rate Limit
+
 This API currently limits users to 1000 authenticated requests and 1000 anonymous requests an hour.
 
 ### Pagination
+
 Information about pagination is provided in the Link header of an API call. For example, let’s make 
 a curl request to the eclipse_profile API, to find out how many org_eclipse_oomph records exist for the user:
 
@@ -42,7 +47,7 @@ Most responses return an ETag header. You can use the values of these headers to
 requests to those resources using the If-None-Match or if-Match header. For example, if the resource 
 has not changed on a GET, the server will return a 304 Not Modified.
  
-The Etag for a blob resource is predictable. This is how were are currently generating them:
+The Etag for a blob resource is predictable. This is how we are currently generating them:
 
 ```
 function _generate_etag($value, $application_token, $key) {
@@ -52,9 +57,11 @@ function _generate_etag($value, $application_token, $key) {
 ```
 
 ### Authentication
+
 *Eclipse Api RESTful API* uses OAuth2 Authorization for protected resources.
 
 ### Error States
+
 The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) 
 are used.
 
