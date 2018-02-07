@@ -4,7 +4,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         aglio: {
             'all': {
-                'files': { 'docs/index.html': ['src/index.apib'],  'docs/auth.html': ['src/auth.apib']},
+                'files': { 'docs/index.html': ['src/index.apib'],  'docs/auth.html': ['src/auth.apib'],  'docs/proposals.html': ['src/proposals.apib']},
                 'options': {
                     'theme': 'default',
                     'separator': '\\n',
