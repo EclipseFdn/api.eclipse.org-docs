@@ -1,0 +1,160 @@
+# Group Forums
+Eclipse Forums are available through this resource.
+
+
+
+## Fetch Categories [GET /forums/category{?page,pagesize}]
+Retrieve a list of all the categories from the Eclipse Forums.
+
++ Parameters
+    + page (integer, optional) - The index of the page to get, defaults to 1.
+    + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
+
++ Response 200 (application/json)
+    + Headers
+        Link:<https://api.eclipse.org/forums/category?page=1&amp;pagesize=20>; rel="next", <https://api.eclipse.org/forums/category?page=99&amp;pagesize=5>; rel="last", <https://api.eclipse.org/forums/category?page=1&amp;pagesize=5>; rel="first", <https://api.eclipse.org/forums/category?page=1&amp;pagesize=5>; rel="self"
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"forums_category":[{"id":"1","name":"Eclipse Projects","url":"https://www.eclipse.org/forums/index.php/i/1","description":" - Eclipse Project Forums - click +/- to expand/collapse","forum_url":"https://api.eclipse.org/forums/forum?category_id=1"},{"id":"2","name":"Newcomers","url":"https://www.eclipse.org/forums/index.php/i/2","description":" - General Newcomer discussions","forum_url":"https://api.eclipse.org/forums/forum?category_id=2"}]}
+
+
+
+## Retrieve Category [GET /forums/category/{category_id}]
+Retrieve a specific category from the  Eclipse Forum's.
+
++ Parameters
+    + category_id (integer) - Unique identifier for category
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"id":"1","name":"Eclipse Projects","url":"https://www.eclipse.org/forums/index.php/i/1","description":" - Eclipse Project Forums - click +/- to expand/collapse","forum_url":"https://api.eclipse.org/forums/forum?category_id=1"}
+
+
+
+## Fetch Forums [GET /forums/forum{?category_id,page,pagesize}]
+Retrieve a list of all the forums from the Eclipse Forums based on a category id if specified.
+
++ Parameters
+    + category_id (integer, optional) - Unique identifier for a category
+    + page (integer, optional) - The index of the page to get, defaults to 1.
+    + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
+
++ Response 200 (application/json)
+    + Headers
+        Link: <https://api.eclipse.org/forums/forum?category_id=1&amp;page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/forums/forum?category_id=1&amp;page=99&amp;pagesize=20>; rel="first", <https://api.eclipse.org/forums/forum?category_id=1&amp;page=1&amp;pagesize=20>; rel="self"
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"forums_forum":[{"id":"2","name":"BIRT","category_id":"1","url":"https://www.eclipse.org/forums/index.php/f/2","description":"Questions, technical discussions and resources on the Business Intelligence and Reporting Tools (BIRT) Project &#160; &lt;a class='smallLink' href='http://www.eclipse.org/birt/'&gt;[project home]&lt;/a&gt;","date_created":"1248706783","thread_count":"28740","post_count":"93781","last_post_id":"1780940","category_url":"https://api.eclipse.org/forums/category/1","topics_url":"https://api.eclipse.org/forums/topic?forum_id=2"}]}
+
+
+
+## Retrieve Forum [GET /forums/forum/{forum_id}]
+Retrieve a specific forum from the Eclipse Forums.
+
++ Parameters
+    + forum_id (integer) - Unique identifier for a forum
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"id":"2","name":"BIRT","category_id":"1","url":"https://www.eclipse.org/forums/index.php/f/2","description":"Questions, technical discussions and resources on the Business Intelligence and Reporting Tools (BIRT) Project &#160; &lt;a class='smallLink' href='http://www.eclipse.org/birt/'&gt;[project home]&lt;/a&gt;","date_created":"1248706783","thread_count":"28740","post_count":"93781","last_post_id":"1780940","category_url":"https://api.eclipse.org/forums/category/1","topics_url":"https://api.eclipse.org/forums/topic?forum_id=2"}
+
+
+
+## Fetch Topics [GET /forums/topic{?forum_id,page,pagesize}]
+Retrieve a list of all the topics from the Eclipse Forums based on a forum id if specified.
+
++ Parameters
+    + forum_id (integer, optional) - Unique identifier for a forum
+    + page (integer, optional) - The index of the page to get, defaults to 1.
+    + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
+
++ Response 200 (application/json)
+    + Headers
+        Link: <https://api.eclipse.org/forums/topic?forum_id=1&amp;page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/forums/topic?forum_id=1&amp;page=99&amp;pagesize=20>; rel="first", <https://api.eclipse.org/forums/topic?forum_id=1&amp;page=1&amp;pagesize=20>; rel="self"
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"forums_topic":[{"id":"2","forum_id":"2","last_post_date":"1489947260","root_msg_id":"2","replies":"1","views":"113121","url":"https://www.eclipse.org/forums/index.php/t/2","last_post_id":"1757399","forum_url":"https://api.eclipse.org/forums/forum/2","posts_url":"https://api.eclipse.org/forums/post?topic_id=2"}]}
+
+
+
+## Retrieve Topic [GET /forums/topic/{topic_id}]
+Retrieve a specific topic from the Eclipse Forums.
+
++ Parameters
+    + topic_id (integer) - Unique identifier for a topic
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"id":"2","forum_id":"2","last_post_date":"1489947260","root_msg_id":"2","replies":"1","views":"113121","url":"https://www.eclipse.org/forums/index.php/t/2","last_post_id":"1757399","forum_url":"https://api.eclipse.org/forums/forum/2","posts_url":"https://api.eclipse.org/forums/post?topic_id=2"}
+
+
+
+## Fetch Posts [GET /forums/post{?topic_id,page,pagesize}]
+Retrieve a list of all the posts from the Eclipse Forums based on a topic_id if specified.
+
++ Parameters
+    + topic_id (integer, optional) - Unique identifier for a topic
+    + page (integer, optional) - The index of the page to get, defaults to 1.
+    + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
+
++ Response 200 (application/json)
+    + Headers
+        Link: <https://api.eclipse.org/forums/post?topic_id=1&amp;page=1&amp;pagesize=20>; rel="last", <https://api.eclipse.org/forums/post?topic_id=1&amp;page=99&amp;pagesize=20>; rel="first", <https://api.eclipse.org/forums/post?topic_id=1&amp;page=1&amp;pagesize=20>; rel="self"
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"forums_post":[{"id":"1779792","subject":"Subclipse problem","topic_id":"1091069","poster_id":"106173","created":"1515775710","url":"https://www.eclipse.org/forums/index.php?t=msg&th=1091069&goto=1779792&#msg_1779792","body":"Hi,&lt;br /&gt;&lt;br /&gt;I was wondering if there is a way to force to redraw the whole Eclipse window. If not, I think it would be beneficial to have one if it's possible to implement, because lately - especially since the GTK2 -&gt; GTK3 transition started - Eclipse became more and more buggy in this area (at least the Linux version).&lt;br /&gt;&lt;br /&gt;I know that it would be only a workaround, and if there's a specific bug then it should be hunted down and corrected instead, but the bug hunting approach of solving the screen update issues works only on the long run. On one hand, many times the bug is in an underlying external component (such as GTK, some font rendering library, Linux video driver), and it's hard to make them correct the bug - that is, if they admit it's a bug and the discussion does not end up in a pointless flamewar instead. On the other hand, even if a bug is corrected, sometimes the correction is only available in the next release of Eclipse/Linux/GTK/whatever, so you end up waiting years to get it in a stable, packaged way, or you have to use experimental stuff which might even need compilation from scratch, etc.&lt;br /&gt;&lt;br /&gt;So, I'd like to ask if anyone knows whether it is technically possible to implement a &quot;forced screen redraw&quot; feature in Eclipse in a general way, so that the notorious screen garbage problems could be mitigated?","topic_url":"https://api.eclipse.org/forums/topic/1091069","topic_posts_url":"https://api.eclipse.org/forums/post?topic_id=1091069"}]}
+
+
+
+## Retrieve Post [GET /forums/post/{post_id}]
+Retrieve a specific post from the Eclipse Forums.
+
++ Parameters
+    + post_id (integer, optional) - Unique identifier for a post
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"id":"1779792","subject":"Subclipse problem","topic_id":"1091069","poster_id":"106173","created":"1515775710","url":"https://www.eclipse.org/forums/index.php?t=msg&th=1091069&goto=1779792&#msg_1779792","body":"Hi,&lt;br /&gt;&lt;br /&gt;I was wondering if there is a way to force to redraw the whole Eclipse window. If not, I think it would be beneficial to have one if it's possible to implement, because lately - especially since the GTK2 -&gt; GTK3 transition started - Eclipse became more and more buggy in this area (at least the Linux version).&lt;br /&gt;&lt;br /&gt;I know that it would be only a workaround, and if there's a specific bug then it should be hunted down and corrected instead, but the bug hunting approach of solving the screen update issues works only on the long run. On one hand, many times the bug is in an underlying external component (such as GTK, some font rendering library, Linux video driver), and it's hard to make them correct the bug - that is, if they admit it's a bug and the discussion does not end up in a pointless flamewar instead. On the other hand, even if a bug is corrected, sometimes the correction is only available in the next release of Eclipse/Linux/GTK/whatever, so you end up waiting years to get it in a stable, packaged way, or you have to use experimental stuff which might even need compilation from scratch, etc.&lt;br /&gt;&lt;br /&gt;So, I'd like to ask if anyone knows whether it is technically possible to implement a &quot;forced screen redraw&quot; feature in Eclipse in a general way, so that the notorious screen garbage problems could be mitigated?","topic_url":"https://api.eclipse.org/forums/topic/1091069","topic_posts_url":"https://api.eclipse.org/forums/post?topic_id=1091069"}
+
+
+
