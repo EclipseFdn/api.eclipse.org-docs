@@ -37,7 +37,7 @@ Forums are associated to a category by category id.
         Content-Type: application/json
         
     + Body
-        {"pagination":{"page":1,"pagesize":2,"result_start":1,"result_end":2,"result_size":2,"total_result_size":9},"result":[{"id":"10","name":"ice","description":"","url":"https://www.eclipse.org/forums/index.php/i/10/","forums_url":"https://api.eclipse.org/forums/forum?category_id=10"},{"id":"8","name":"Archived","description":" - Forums for projects that have been officially archived.","url":"https://www.eclipse.org/forums/index.php/i/8/","forums_url":"https://api.eclipse.org/forums/forum?category_id=8"}]}
+        {"pagination":{"page":1,"pagesize":2,"result_start":1,"result_end":2,"result_size":2,"total_result_size":9},"result":[{"id": "1","name": "Eclipse Projects","description": " - Eclipse Project Forums - click +/- to expand/collapse","html_url": "https://www.eclipse.org/forums/index.php/i/1/","forums_url": "https://api.eclipse.org/forums/forum?category_id=1"},{"id": "2","name": "Newcomers","description": " - General Newcomer discussions","html_url": "https://www.eclipse.org/forums/index.php/i/2/","forums_url": "https://api.eclipse.org/forums/forum?category_id=2"}]}
 
 
 
@@ -72,7 +72,7 @@ Forums are associated to a category by category id.
         Content-Type: application/json
         
     + Body
-        {"id":"10","name":"ice","description":"","url":"https://www.eclipse.org/forums/index.php/i/10/","forums_url":"https://api.eclipse.org/forums/forum?category_id=10"}
+        {"id": "1","name": "Eclipse Projects","description": " - Eclipse Project Forums - click +/- to expand/collapse","html_url": "https://www.eclipse.org/forums/index.php/i/1/","forums_url": "https://api.eclipse.org/forums/forum?category_id=1"}
 
 
 
@@ -122,7 +122,7 @@ Topics are associated to a forum by forum id.
         Content-Type: application/json
         
     + Body
-        {"pagination":{"page":1,"pagesize":1,"result_start":1,"result_end":1,"result_size":1,"total_result_size":391},"result":[{"id":"2","name":"BIRT","category_id":"1","url":"https://www.eclipse.org/forums/index.php/f/2/","description":"Questions, technical discussions and resources on the Business Intelligence and Reporting Tools (BIRT) Project &#160; &lt;a class='smallLink' href='http://www.eclipse.org/birt/'&gt;[project home]&lt;/a&gt;","created_date":"1248706783","topic_count":"28740","post_count":"93781","last_post_id":"1780940","category_url":"https://api.eclipse.org/forums/category/1","topics_url":"https://api.eclipse.org/forums/topic?forum_id=2"}]}
+        {"pagination":{"page":1,"pagesize":1,"result_start":1,"result_end":1,"result_size":1,"total_result_size":391},"result":[{"id": "89","category_id": "2","description": "Eclipse forum for newcomers","name": "Newcomers","created_date": "1248707078","topic_count": "22344","post_count": "62843","last_post_id": "1780973","html_url": "https://www.eclipse.org/forums/index.php/f/89/","topics_url": "https://api.eclipse.org/forums/topic?forum_id=89","category_url": "https://api.eclipse.org/forums/category/2"}]}
 
 
 
@@ -163,7 +163,7 @@ Topics are associated to a forum by forum id.
         Content-Type: application/json
         
     + Body
-        {"id":"2","name":"BIRT","category_id":"1","url":"https://www.eclipse.org/forums/index.php/f/2/","description":"Questions, technical discussions and resources on the Business Intelligence and Reporting Tools (BIRT) Project &#160; &lt;a class='smallLink' href='http://www.eclipse.org/birt/'&gt;[project home]&lt;/a&gt;","created_date":"1248706783","topic_count":"28740","post_count":"93781","last_post_id":"1780940","category_url":"https://api.eclipse.org/forums/category/1","topics_url":"https://api.eclipse.org/forums/topic?forum_id=2"}
+        {"id": "89","category_id": "2","description": "Eclipse forum for newcomers","name": "Newcomers","created_date": "1248707078","topic_count": "22344","post_count": "62843","last_post_id": "1780973","html_url": "https://www.eclipse.org/forums/index.php/f/89/","topics_url": "https://api.eclipse.org/forums/topic?forum_id=89","category_url": "https://api.eclipse.org/forums/category/2"}
 
 
 
@@ -212,7 +212,7 @@ Posts are associated to a topic by topic id.
         Content-Type: application/json
         
     + Body
-        {"pagination":{"page":1,"pagesize":1,"result_start":1,"result_end":1,"result_size":1,"total_result_size":892958},"result":[{"id":"2","forum_id":"2","last_post_date":"1489947260","root_post_id":"2","replies":"1","views":"113121","url":"https://www.eclipse.org/forums/index.php/t/2/","last_post_id":"1757399","forum_url":"https://api.eclipse.org/forums/forum/2","posts_url":"https://api.eclipse.org/forums/post?topic_id=2"}]}
+        {"pagination":{"page":1,"pagesize":1,"result_start":1,"result_end":1,"result_size":1,"total_result_size":892958},"result":[{"id": "1091418","forum_id": "89","last_post_id": "1780973","last_post_date": "1517333817","root_post_id": "1780971","replies": "2","views": "52","subject": "keep the parameter  value selected","html_url": "https://www.eclipse.org/forums/index.php/t/1091418/","posts_url": "https://api.eclipse.org/forums/post?topic_id=1091418","forum_url": "https://api.eclipse.org/forums/forum/89"}]}
 
 
 
@@ -252,7 +252,7 @@ Posts are associated to a topic by topic id.
         Content-Type: application/json
         
     + Body
-        {"id":"2","forum_id":"2","last_post_date":"1489947260","root_msg_id":"2","replies":"1","views":"113121","url":"https://www.eclipse.org/forums/index.php/t/2/","last_post_id":"1757399","forum_url":"https://api.eclipse.org/forums/forum/2","posts_url":"https://api.eclipse.org/forums/post?topic_id=2"}
+        {"id": "1091418","forum_id": "89","last_post_id": "1780973","last_post_date": "1517333817","root_post_id": "1780971","replies": "2","views": "52","subject": "keep the parameter  value selected","html_url": "https://www.eclipse.org/forums/index.php/t/1091418/","posts_url": "https://api.eclipse.org/forums/post?topic_id=1091418","forum_url": "https://api.eclipse.org/forums/forum/89"}
 
 
 
@@ -301,7 +301,7 @@ Posts are associated to a topic by topic id.
         Content-Type: application/json
         
     + Body
-        {"pagination":{"page":1,"pagesize":1,"result_start":1,"result_end":1,"result_size":1,"total_result_size":1645105},"result":[{"id":"1779792","subject":"Subclipse problem","forum_id":"123","topic_id":"1091069","poster_id":"106173","created_date":"1515775710","url":"https://www.eclipse.org/forums/index.php?t=msg&th=1091069&goto=1779792&#msg_1779792","body":"Hi,&lt;br /&gt;&lt;br /&gt;I was wondering if there is a way to force to redraw the whole Eclipse window. If not, I think it would be beneficial to have one if it's possible to implement, because lately - especially since the GTK2 -&gt; GTK3 transition started - Eclipse became more and more buggy in this area (at least the Linux version).&lt;br /&gt;&lt;br /&gt;I know that it would be only a workaround, and if there's a specific bug then it should be hunted down and corrected instead, but the bug hunting approach of solving the screen update issues works only on the long run. On one hand, many times the bug is in an underlying external component (such as GTK, some font rendering library, Linux video driver), and it's hard to make them correct the bug - that is, if they admit it's a bug and the discussion does not end up in a pointless flamewar instead. On the other hand, even if a bug is corrected, sometimes the correction is only available in the next release of Eclipse/Linux/GTK/whatever, so you end up waiting years to get it in a stable, packaged way, or you have to use experimental stuff which might even need compilation from scratch, etc.&lt;br /&gt;&lt;br /&gt;So, I'd like to ask if anyone knows whether it is technically possible to implement a &quot;forced screen redraw&quot; feature in Eclipse in a general way, so that the notorious screen garbage problems could be mitigated?","topic_url":"https://api.eclipse.org/forums/topic/1091069","topic_posts_url":"https://api.eclipse.org/forums/post?topic_id=1091069"}]}
+        {"pagination":{"page":1,"pagesize":1,"result_start":1,"result_end":1,"result_size":1,"total_result_size":1645105},"result":[{"id": "1780973","subject": "Re: keep the parameter  value selected","topic_id": "1091418","poster_id": "219149","created_date": "1517333817","forum_id": "89","body": "This is the body","html_url": "https://www.eclipse.org/forums/index.php?t=msg&th=1091418&goto=1780973&#msg_1780973","topic_url": "https://api.eclipse.org/forums/topic/1091418","forum_url": "https://api.eclipse.org/forums/forum/89","user_url": "https://api.eclipse.org/forums/user/219149"}]}
 
 
 
@@ -341,7 +341,41 @@ Posts are associated to a topic by topic id.
         Content-Type: application/json
         
     + Body
-        {"id":"1779792","subject":"Subclipse problem","forum_id":"123","topic_id":"1091069","poster_id":"106173","created_date":"1515775710","url":"https://www.eclipse.org/forums/index.php?t=msg&th=1091069&goto=1779792&#msg_1779792","body":"Hi,&lt;br /&gt;&lt;br /&gt;I was wondering if there is a way to force to redraw the whole Eclipse window. If not, I think it would be beneficial to have one if it's possible to implement, because lately - especially since the GTK2 -&gt; GTK3 transition started - Eclipse became more and more buggy in this area (at least the Linux version).&lt;br /&gt;&lt;br /&gt;I know that it would be only a workaround, and if there's a specific bug then it should be hunted down and corrected instead, but the bug hunting approach of solving the screen update issues works only on the long run. On one hand, many times the bug is in an underlying external component (such as GTK, some font rendering library, Linux video driver), and it's hard to make them correct the bug - that is, if they admit it's a bug and the discussion does not end up in a pointless flamewar instead. On the other hand, even if a bug is corrected, sometimes the correction is only available in the next release of Eclipse/Linux/GTK/whatever, so you end up waiting years to get it in a stable, packaged way, or you have to use experimental stuff which might even need compilation from scratch, etc.&lt;br /&gt;&lt;br /&gt;So, I'd like to ask if anyone knows whether it is technically possible to implement a &quot;forced screen redraw&quot; feature in Eclipse in a general way, so that the notorious screen garbage problems could be mitigated?","topic_url":"https://api.eclipse.org/forums/topic/1091069","topic_posts_url":"https://api.eclipse.org/forums/post?topic_id=1091069"}
+        {"id": "1780973","subject": "Re: keep the parameter  value selected","topic_id": "1091418","poster_id": "219149","created_date": "1517333817","forum_id": "89","body": "This is the body","html_url": "https://www.eclipse.org/forums/index.php?t=msg&th=1091418&goto=1780973&#msg_1780973","topic_url": "https://api.eclipse.org/forums/topic/1091418","forum_url": "https://api.eclipse.org/forums/forum/89","user_url": "https://api.eclipse.org/forums/user/219149"}
 
 
 
+## Retrieve User [GET /forums/user/{user_id}]
+
+### Overview
+
+Retrieve information for **a specific user** from the Eclipse Forums website.
+
+### What is a user?
+
+A user is the author of a post
+
+### Result definition
+
++ **id:** id of the user
++ **alias:** alias of the user
++ **email:** email of the user
++ **posted_msg_count:** number of posts the user created
++ **join_date:** timestamp of the date the user joined the Eclipse Forums
++ **last_visit:** timestamp of the date the user last visited the Eclipse Forums website
++ **level_name:** level of the user
++ **url:** url of the user on the Eclipse Forums website
++ **account_url:** url of the user's account on accounts.eclipse.org
+
++ Parameters
+    + user_id (integer, optional) - Unique identifier for a user
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        {"id": "1","alias": "Test user","email": "test@user.org","post_count": "4","join_date": "1510351551","last_visit": "1517333991","level_name": "Junior Member","html_url": "https://www.eclipse.org/forums/index.php?t=usrinfo&id=1","account_url": "https://api.eclipse.org/account/profile?mail=test@user.org","posts_url": "https://api.eclipse.org/forums/post?user_id=1"}
