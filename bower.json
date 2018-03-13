@@ -23,6 +23,6 @@
     "tests"
   ],
   "dependencies": {
-    "solstice": "https://github.com/EclipseFdn/solstice-assets.git"
+    "solstice-assets": "https://github.com/EclipseFdn/solstice-assets.git"
   }
 }

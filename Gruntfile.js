@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
     'use strict';
-    require('load-grunt-tasks')(grunt);
     grunt.initConfig({
         aglio: {
             'all': {
@@ -43,6 +42,9 @@ module.exports = function (grunt) {
             }
         }
     });
+    grunt.loadNpmTasks('grunt-aglio');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('build', ['aglio']);
     grunt.registerTask('serve', [
         'build',
