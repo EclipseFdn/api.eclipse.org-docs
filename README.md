@@ -2,7 +2,7 @@
 Source files for the API should be placed in __src__ folder.
 
 ## Installation
-To install dependencies, run ___npm install && bower install___.
+To install dependencies, run ___npm install___.
 
 ## Usage
 To generate some pretty HTML into the docs folder, run ___npm run grunt build___ at the command line.

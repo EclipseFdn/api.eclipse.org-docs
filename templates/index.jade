@@ -8,11 +8,14 @@ html
         title= self.api.name || 'API Documentation'
         link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
         script(src="//eclipse.org/eclipse.org-common/themes/solstice/public/javascript/main.min.js")
+        script(src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js")
+        link(rel="stylesheet", href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css")
+        link(rel="stylesheet", href="//eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/barebone.min.css")
         style!= self.css
 
     body.preload.solstice-footer-min#body_solstice
-        include ga.html 
-        include header.html 
+        include ga.html
+        include header.html
         a.text-muted.back-to-top(href='#top')
             i.fa.fa-toggle-up
             | &nbsp;Back to top
