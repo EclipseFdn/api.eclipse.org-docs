@@ -2,7 +2,7 @@
 
 Eclipse Mailing Lists are available through this resource.
 
-## Fetch Mailing lists Metadata [GET /mailing_lists/metadata{?name,search,page,pagesize,order_by}]
+## Fetch Mailing lists [GET /foundation/mailing-list{?search,page,pagesize,order_by}]
 
 ### Overview
 
@@ -11,11 +11,17 @@ Retrieve metadata for all the mailing lists.
 ### Result definition
 
 + **list_name:** name of the mailing list
++ **list_description:** description of the mailing list
++ **project_id:** Id of the project related to the mailing list
++ **list_short_description:** short description of the mailing list
++ **is_disabled:** if the mailing list is disabled
++ **is_deleted:** if the mailing list is deleted
++ **is_subscribable:** if the mailing list is subscribable
++ **create_date:** the date the mailing list was created
 + **url:** url of the mailing list
 + **email:** email of the mailing list
 
 + Parameters
-    + name (string, optional) - The name of a specific mailing list
     + search (string, optional) - A keyword to search for in a mailing list name
     + page (integer, optional) - The index of the page to get, defaults to 1.
     + pagesize (integer, optional) - The number of records to get per page, defaults to 20. Maximum value is 100.
@@ -23,13 +29,46 @@ Retrieve metadata for all the mailing lists.
 
 + Response 200 (application/json)
     + Headers
-        Link:<https://api.eclipse.org/mailing_lists/metadata?page=1&amp;pagesize=20>; rel="next", <https://api.eclipse.org/mailing_lists/metadata?page=99&amp;pagesize=5>; rel="last", <https://api.eclipse.org/mailing_lists/metadata?page=1&amp;pagesize=5>; rel="first", <https://api.eclipse.org/mailing_lists/metadata?page=1&amp;pagesize=5>; rel="self"
+        Link:<https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=20>; rel="next", <https://api.eclipse.org/foundation/mailing-list?page=99&amp;pagesize=5>; rel="last", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel="first", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel="self"
         X-Rate-Limit-Limit: 1000
         X-Rate-Limit-Remaining: 964
         X-Rate-Limit-Reset: 3553
         Content-Type: application/json
         
     + Body
-        [{"list_name":"example-list1","url":"https://accounts.eclipse.org/mailing-list/example-list1","email":"example-list1@eclipse.org"},{"list_name":"example-list2","url":"https://accounts.eclipse.org/mailing-list/example-list2","email":"example-list2@eclipse.org"}]
+        [{"list_name":"dash-dev","list_description":"Tools for Committer Community","project_id":"","list_short_description":null,"is_disabled":"0","is_deleted":"0","is_subscribable":"1","create_date":null,"url":"https://accounts.eclipse.org/mailing-list/dash-dev","email":"dash-dev@eclipse.org"}]
 
 
+
+
+## Retrieve Mailing List [GET /foundation/mailing-list/{mailing_list_id}]
+
+### Overview
+
+Retrieve information for a specific mailing list
+
+### Result definition
+
++ **list_name:** name of the mailing list
++ **list_description:** description of the mailing list
++ **project_id:** Id of the project related to the mailing list
++ **list_short_description:** short description of the mailing list
++ **is_disabled:** if the mailing list is disabled
++ **is_deleted:** if the mailing list is deleted
++ **is_subscribable:** if the mailing list is subscribable
++ **create_date:** the date the mailing list was created
++ **url:** url of the mailing list
++ **email:** email of the mailing list
+
++ Parameters
+    + name (integer) - Name of the mailing list
+
++ Response 200 (application/json)
+    + Headers
+        X-Rate-Limit-Limit: 1000
+        X-Rate-Limit-Remaining: 964
+        X-Rate-Limit-Reset: 3553
+        Content-Type: application/json
+        
+    + Body
+        [{"list_name":"dash-dev","list_description":"Tools for Committer Community","project_id":"","list_short_description":null,"is_disabled":"0","is_deleted":"0","is_subscribable":"1","create_date":null,"url":"https://accounts.eclipse.org/mailing-list/dash-dev","email":"dash-dev@eclipse.org"}]
