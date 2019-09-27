@@ -1,22 +1,14 @@
 {
   "name": "eclipse_api_documentation",
-  "version": "0.0.0",
-  "description": "api-blueprint based API documentation for eclipse_api_documentation",
-  "license": "MIT",
-  "author": {
-    "name": "Christopher Guindon"
+  "version": "1.0.0",
+  "dependencies": {
+    "swagger-repo": "^2.0.0-rc.15"
   },
-  "files": [
-    "dist/index.html"
-  ],
+  "private": true,
   "scripts": {
-    "grunt": "node_modules/.bin/grunt",
-    "postinstall": "find node_modules/ -name '*.info' -type f -delete"
-  },
-  "devDependencies": {
-    "grunt": "^1.0.2",
-    "grunt-aglio": "^0.4.1",
-    "grunt-contrib-connect": "^1.0.2",
-    "grunt-contrib-watch": "^1.0.0"
+    "start": "swagger-repo serve",
+    "build": "swagger-repo build -o web_deploy",
+    "test": "swagger-repo validate",
+    "gh-pages": "swagger-repo gh-pages"
   }
 }
