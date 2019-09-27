@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- node
+deploy:
+- skip_cleanup: true
+  provider: script
+  script: npm run build && npm run gh-pages
+  on:
+    branch: master
+- skip_cleanup: true
+  provider: script
+  script: npm run build && npm run gh-pages -- -p "$TRAVIS_BRANCH"
+  on:
+    all_branches: true
+    condition: '"$TRAVIS_BRANCH" != "master" && "$TRAVIS_BRANCH" != "gh-pages"'
+  email: chris.guindon@eclipse-foundation.org
+  name: Christopher Guindon
+env:
+  global:
+    secure: E/Q4/XQu7hFWt+hAQ6B3kS5Rt0yWVZzz0uPNFrVaXyIPET0C49NzWreAn2Hv+asHWOxzyEIa+JiIyI/m7/crp+Hd03ghnVSTrAwSvQ9+1g8Hg+34PbyXBPeQe+wncQWlyFy3aqtB+i357X+qJyQ39+3NBhR4eZacV8MIkRRGljm8gW1PGhwt95ykmP8eqdPQrM9ec+w3fFxMp2jC8M9KWBETVYrOu8TkZYlVgS+lZJQMNAlaYo1iq0QOBYABYGPKqUqoP0E4NLSCtiTlX/6rMMW3Iu0ew0ySbDi9rlB3vaWtS0F7ne11anHunjMeHoPBxOc5rfEifQcFR2H8hWWvrL1T5ggYdwpi35BSYaWeoyMDeQqJRwPAgKtxFu3URUZz1CM7gbUT+43DJv9OwCTCO3SRWyrkfoIUnHQNTlnvw/RGr71nNLz6YNC+GoY0FgGIpXFLhVMJ9VTMc2EV5ymH0zkYbQIzxat2hFEafRmMfGrn0qdgTAlNMX5AIPTNGGfgP3E0Y0whrMUclpLA5tJBMlYQ7VGxY5eNOvRDdjM3yPLYHXJILetaoUujPvFbvP//8L+IwcXubSafPv1mBTNjLyPoM26sCy0VG84dZ7puxPv3V4IXeH5PD+exm3dqRQI9sbVpGLTf1xVYUK8aIy0NdyUQboqIKXqcg6eh6qC6jzY=
