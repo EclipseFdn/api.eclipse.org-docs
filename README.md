@@ -1,4 +1,4 @@
-# Eclipse Api RESTful API
+# Eclipse Api Documentation
 Source files for the API should be placed in __src__ folder.
 
 ## Links
