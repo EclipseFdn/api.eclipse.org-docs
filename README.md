@@ -1,5 +1,8 @@
 # Eclipse Api Documentation
-Source files for the API should be placed in __src__ folder.
+
+This project describes the resources that make up the official Eclipse Foundation REST API.
+
+[![Build Status](https://travis-ci.org/EclipseFdn/api.eclipse.org-docs.svg?branch=master)](https://travis-ci.org/EclipseFdn/api.eclipse.org-docs)
 
 ## Links
 
