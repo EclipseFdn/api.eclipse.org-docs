@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Eclipse RESTful API",
-    "description": "This describes the resources that make up the official Eclipse Foundation REST API.\n\nYou can contribute to this document via our [git repository](https://github.com/chrisguindon/api.eclipse.org-docs).\n\nIf you have any problems or requests please contact [Christopher Guindon](mailto:chris.guindon@eclipse-foundation.org).\n\n### Other related REST APIs\n\nAlthought they are not directly related to this API, the Eclipse forge proposes several other access points and APIs for specific tools and purposes. Please see the following resources for more details:\n\n+ [Eclipse Bugzilla](https://bugs.eclipse.org/bugs) **([Documentation](https://wiki.mozilla.org/Bugzilla:REST_API))**\n\n+ [Eclipse Gerrit](https://git.eclipse.org/r/) **([Documentation](https://gerrit-review.googlesource.com/Documentation/rest-api.html))**\n\n+ [Eclipse Jenkins](https://ci.eclipse.org/) **([Documentation](https://wiki.jenkins.io/display/JENKINS/Remote+access+API))**\n\n+ [Eclipse Marketplace](http://marketplace.eclipse.org/) **([Documentation](https://wiki.eclipse.org/Marketplace/REST))**\n\n+ [Eclipse Project Management Infrastructure (PMI)](https://wiki.eclipse.org/Project_Management_Infrastructure) **([Documentation](https://wiki.eclipse.org/Project_Management_Infrastructure#Web_APIs))**\n\n### Rate Limit\n\nThis API currently limits users to 1000 authenticated requests and 1000 anonymous requests an hour.\n\n### Pagination\n\nInformation about pagination is provided in the Link header of an API call. For example, let’s make \na curl request to the eclipse_profile API, to find out how many org_eclipse_oomph records exist for the user:\n\n```curl -I \"https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&pagesize=2\"```\n\nThe -I parameter indicates that we only care about the headers, not the content. \nIn examining the result, you’ll notice some information in the Link header that looks like this:\n\n```\n<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=2&amp;pagesize=2>; rel=\"next\", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=27&amp;pagesize=2>; rel=\"last\", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel=\"first\", <https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel=\"self\"\n```\n\nLet’s break that down. rel=\"next\" says that the next page is page=2. This makes sense, since by default, \nall paginated queries start at page 1. rel=\"last\" provides some more information, stating that the last page of results is on page 27.\n\nKeep in mind that you should always rely on these link relations provided to you. Don’t try to guess or construct your own URL.\n\n### Caching\n\nMost responses return an ETag header. You can use the values of these headers to make subsequent \nrequests to those resources using the If-None-Match or if-Match header. For example, if the resource \nhas not changed on a GET, the server will return a 304 Not Modified.\n\nThe Etag for a blob resource is predictable. This is how we are currently generating them:\n\n```\nfunction _generate_etag($value, $application_token, $key) {\n  $string = $value . $application_token . $key;\n  return  hash('sha256', $string, FALSE);\n}\n```\n\n### Authentication\n\n*Eclipse Api RESTful API* uses OAuth2 Authorization for protected resources.\n\n### Error States\n\nThe common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) \nare used.",
+    "description": "This describes the resources that make up the official Eclipse Foundation REST API.\nYou can contribute to this document via our [git repository](https://github.com/chrisguindon/api.eclipse.org-docs).\nIf you have any problems or requests please contact [Christopher Guindon](mailto:chris.guindon@eclipse-foundation.org).\n### Other related REST APIs\nAlthought they are not directly related to this API, the Eclipse forge proposes several other access points and APIs for specific tools and purposes. Please see the following resources for more details:\n  - [Eclipse Bugzilla](https://bugs.eclipse.org/bugs) **([Documentation](https://wiki.mozilla.org/Bugzilla:REST_API))**\n  - [Eclipse Gerrit](https://git.eclipse.org/r/) **([Documentation](https://gerrit-review.googlesource.com/Documentation/rest-api.html))**\n  - [Eclipse Jenkins](https://ci.eclipse.org/) **([Documentation](https://wiki.jenkins.io/display/JENKINS/Remote+access+API))**\n  - [Eclipse Marketplace](http://marketplace.eclipse.org/) **([Documentation](https://wiki.eclipse.org/Marketplace/REST))**\n  - [Eclipse Project Management Infrastructure (PMI)](https://wiki.eclipse.org/Project_Management_Infrastructure) **([Documentation](https://wiki.eclipse.org/Project_Management_Infrastructure#Web_APIs))**\n\n### Rate Limit\nThis API currently limits users to 1000 authenticated requests and 1000 anonymous requests an hour.\n### Pagination\nInformation about pagination is provided in the Link header of an API call. For example, let’s make a curl request to the eclipse_profile API, to find out how many org_eclipse_oomph records exist for the user:\n```\ncurl -I \\\"https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&pagesize=2\\\"\n```\nThe -I parameter indicates that we only care about the headers, not the content. In examining the result, you’ll notice some information in the Link header that looks like this:\n```\n<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=2&amp;pagesize=2>; rel=\"next\", \n<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=27&amp;pagesize=2>; rel=\"last\", \n<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel=\"first\", \n<https://api.eclipse.org/api/blob/KJBNCEW08231nkJKCEW32898239?page=1&amp;pagesize=2>; rel=\"self\"\n```\nLet’s break that down. rel=\\\"next\\\" says that the next page is page=2. This makes sense, since by default, all paginated queries start at page 1. rel=\\\"last\\\" provides some more information, stating that the last page of results is on page 27.\nKeep in mind that you should always rely on these link relations provided to you. Don’t try to guess or construct your own URL.\n### Caching\nMost responses return an ETag header. You can use the values of these headers to make subsequent requests to those resources using the If-None-Match or if-Match header. For example, if the resource has not changed on a GET, the server will return a 304 Not Modified.\nThe Etag for a blob resource is predictable. This is how we are currently generating them:\n```\nfunction _generate_etag($value, $application_token, $key) {  \n  $string = $value . $application_token . $key;  \n  return  hash('sha256', $string, FALSE);\n}\n```\n\n### Error States\nThe common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.\n\n# Authentication\nEclipse Api RESTful API uses OAuth2 Authorization for protected resources.\n",
     "contact": {},
     "version": "1.0"
   },
@@ -681,6 +681,13 @@
             }
           }
         ],
+        "security": [
+          {
+            "oauth2": [
+              "read"
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -847,6 +854,13 @@
             }
           }
         ],
+        "security": [
+          {
+            "oauth2": [
+              "read"
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -985,6 +999,13 @@
             }
           }
         ],
+        "security": [
+          {
+            "oauth2": [
+              "write"
+            ]
+          }
+        ],
         "responses": {
           "204": {
             "description": "",
@@ -1073,6 +1094,13 @@
               "type": "string",
               "example": "application/json"
             }
+          }
+        ],
+        "security": [
+          {
+            "oauth2": [
+              "write"
+            ]
           }
         ],
         "responses": {
@@ -2806,6 +2834,13 @@
             }
           }
         ],
+        "security": [
+          {
+            "oauth2": [
+              "read"
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -2929,6 +2964,13 @@
               "type": "integer",
               "format": "int32"
             }
+          }
+        ],
+        "security": [
+          {
+            "oauth2": [
+              "read"
+            ]
           }
         ],
         "responses": {
@@ -3065,6 +3107,13 @@
             }
           }
         ],
+        "security": [
+          {
+            "oauth2": [
+              "write"
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -3179,6 +3228,13 @@
             }
           }
         ],
+        "security": [
+          {
+            "oauth2": [
+              "write"
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "",
@@ -3218,6 +3274,13 @@
               "type": "integer",
               "format": "int32"
             }
+          }
+        ],
+        "security": [
+          {
+            "oauth2": [
+              "read"
+            ]
           }
         ],
         "responses": {
@@ -3363,6 +3426,13 @@
           },
           "required": true
         },
+        "security": [
+          {
+            "oauth2": [
+              "write"
+            ]
+          }
+        ],
         "responses": {
           "204": {
             "description": "",
@@ -13197,17 +13267,22 @@
       }
     },
     "securitySchemes": {
-      "httpBearer": {
-        "type": "http",
-        "scheme": "bearer"
+      "oauth2": {
+        "description": "Get access to data while protecting your account credentials.\nOAuth2 is also a safer and more secure way to give you access.\n",
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://accounts.php55.dev.docker/oauth2/authorize",
+            "tokenUrl": "https://accounts.php55.dev.docker/oauth2/token",
+            "scopes": {
+              "write": "Grants write access",
+              "read": "Grants read access"
+            }
+          }
+        }
       }
     }
   },
-  "security": [
-    {
-      "httpBearer": []
-    }
-  ],
   "tags": [
     {
       "name": "User Profiles",
