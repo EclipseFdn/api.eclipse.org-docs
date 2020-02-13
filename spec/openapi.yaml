@@ -3723,43 +3723,11 @@ paths:
   
         Retrieve metadata for all projects.
   
-  
-        ### Result definition
-  
-  
-        + **project_id:** ID of the project
-  
-  
-        + **name:** Name of the project
-  
-  
-        + **scope:** Scope of the project
-  
-  
-        + **url:** Url of the project on projects.eclipse.org
-  
-  
-        + **logo:** Logo of the project
-  
-  
-        + **github_repos:** Github Repository of the project
-  
-  
-        + **contributors:** List of contributors of the project
-  
-  
-        + **committers:** List of committers of the project
-  
-  
-        + **working_groups:** Working Groups associated to this project
-  
-  
-        + **spec_project_working_group:** Identifies this project as a specification project and to which working group it is associated to
       operationId: FetchProjects
       parameters:
       - name: github_only
         in: query
-        description: Select only the project
+        description: Select only the projects that contains GitHub repos
         style: form
         explode: true
         schema:
@@ -3810,62 +3778,29 @@ paths:
         explode: true
         schema:
           type: string
-      - name: github_only=1
-        in: query
-        description: ''
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: spec_project=1
-        in: query
-        description: ''
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: spec_project_working_group=""
-        in: query
-        description: ''
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: working_group=""
-        in: query
-        description: ''
-        style: form
-        explode: true
-        schema:
-          type: string
       responses:
         200:
           description: ''
           headers:
             Link:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: <https://projects.eclipse.org/api/projects?github_only=1&spec_project=1&spec_project_working_group=""&working_group=""&page=1&amp;pagesize=20>; rel="next", <https://api.eclipse.org/foundation/mailing-list?page=99&amp;pagesize=5>; rel="last", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel="first", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel="self"
+              schema:
+                type: string
+              example: <https://projects.eclipse.org/api/projects?github_only=1&spec_project=1&spec_project_working_group=""&working_group=""&page=1&amp;pagesize=20>; rel="next", <https://api.eclipse.org/foundation/mailing-list?page=99&amp;pagesize=5>; rel="last", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel="first", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel="self"
             X-Rate-Limit-Limit:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1000
+              schema:
+                type: integer
+                format: int32
+              example: 1000
             X-Rate-Limit-Remaining:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 964
+              schema:
+                type: integer
+                format: int32
+              example: 964
             X-Rate-Limit-Reset:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 3553
+              schema:
+                type: integer
+                format: int32
+              example: 3553
           content:
             application/json:
               schema:
@@ -3878,8 +3813,6 @@ paths:
                 name: Jakarta Batch
                 scope: >+
                   <p><strong>Project Scope:&nbsp; </strong>The Jakarta Batch project defines and maintains the Jakarta Batch specification and related artifacts.</p>
-  
-  
   
                   <p><strong>Specification Scope: &nbsp;&nbsp;</strong> Jakarta Batch describes a means for developing, executing and managing batch processes in Jakarta EE applications.</p>
   
@@ -3918,62 +3851,52 @@ paths:
       description: >-
         ### Overview
 
+
         Retrieve information for a specific project
 
-        ### Result definition
 
-        + **project_id:** ID of the project
+        **Note** that every dots in a project id needs to be changed to an underscore
 
-        + **name:** Name of the project
 
-        + **scope:** Scope of the project
+        ### Examples: 
 
-        + **url:** Url of the project on projects.eclipse.org
 
-        + **logo:** Logo of the project
+        * https://projects.eclipse.org/api/projects/technology_dash
 
-        + **github_repos:** Github Repository of the project
+        * https://projects.eclipse.org/api/projects/ecd_che
 
-        + **contributors:** List of contributors of the project
-
-        + **committers:** List of committers of the project
-
-        + **working_groups:** Working Groups associated to this project
-
-        + **spec_project_working_group:** Identifies this project as a specification project and to which working group it is associated to
       operationId: RetrieveAProject
       parameters:
       - name: project_id
         in: path
-        description: ID of the project
+        description: ID of the project.
         required: true
         style: simple
         explode: false
         schema:
-          type: integer
-          format: int32
+          type: string
       responses:
         200:
           description: ''
           headers:
             X-Rate-Limit-Limit:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 1000
+              description: Test 1
+              schema:
+                type: integer
+                format: int32
+              example: 1000
             X-Rate-Limit-Remaining:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 964
+              description: Test 2
+              schema:
+                type: integer
+                format: int32
+              example: 964
             X-Rate-Limit-Reset:
-              content:
-                text/plain:
-                  schema:
-                    type: string
-                  example: 3553
+              description: Test 3
+              schema:
+                type: integer
+                format: int32
+              example: 3553
           content:
             application/json:
               schema:
@@ -4032,17 +3955,6 @@ components:
   schemas:
     FetchProjectsresponse:
       title: FetchProjectsresponse
-      required:
-      - project_id
-      - name
-      - scope
-      - url
-      - logo
-      - github_repos
-      - contributors
-      - committers
-      - working_groups
-      - spec_project_working_group
       type: object
       properties:
         project_id:
@@ -4164,17 +4076,6 @@ components:
         id: jakarta-ee
     RetrieveaProjectresponse:
       title: RetrieveaProjectresponse
-      required:
-      - project_id
-      - name
-      - scope
-      - url
-      - logo
-      - github_repos
-      - contributors
-      - committers
-      - working_groups
-      - spec_project_working_group
       type: object
       properties:
         project_id:
