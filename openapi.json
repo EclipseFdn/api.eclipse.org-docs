@@ -4441,13 +4441,13 @@
           "Projects"
         ],
         "summary": "Fetch Projects",
-        "description": "### Overview\n\nRetrieve metadata for all projects.\n\n### Result definition\n\n+ **project_id:** ID of the project\n\n+ **name:** Name of the project\n\n+ **scope:** Scope of the project\n\n+ **url:** Url of the project on projects.eclipse.org\n\n+ **logo:** Logo of the project\n\n+ **github_repos:** Github Repository of the project\n\n+ **contributors:** List of contributors of the project\n\n+ **committers:** List of committers of the project\n\n+ **working_groups:** Working Groups associated to this project\n\n+ **spec_project_working_group:** Identifies this project as a specification project and to which working group it is associated to",
+        "description": "### Overview\n\nRetrieve metadata for all projects.",
         "operationId": "FetchProjects",
         "parameters": [
           {
             "name": "github_only",
             "in": "query",
-            "description": "Select only the project",
+            "description": "Select only the projects that contains GitHub repos",
             "style": "form",
             "explode": true,
             "schema": {
@@ -4517,46 +4517,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "github_only=1",
-            "in": "query",
-            "description": "",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "spec_project=1",
-            "in": "query",
-            "description": "",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "spec_project_working_group=\"\"",
-            "in": "query",
-            "description": "",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "working_group=\"\"",
-            "in": "query",
-            "description": "",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -4564,44 +4524,31 @@
             "description": "",
             "headers": {
               "Link": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "<https://projects.eclipse.org/api/projects?github_only=1&spec_project=1&spec_project_working_group=\"\"&working_group=\"\"&page=1&amp;pagesize=20>; rel=\"next\", <https://api.eclipse.org/foundation/mailing-list?page=99&amp;pagesize=5>; rel=\"last\", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel=\"first\", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel=\"self\""
-                  }
-                }
+                "schema": {
+                  "type": "string"
+                },
+                "example": "<https://projects.eclipse.org/api/projects?github_only=1&spec_project=1&spec_project_working_group=\"\"&working_group=\"\"&page=1&amp;pagesize=20>; rel=\"next\", <https://api.eclipse.org/foundation/mailing-list?page=99&amp;pagesize=5>; rel=\"last\", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel=\"first\", <https://api.eclipse.org/foundation/mailing-list?page=1&amp;pagesize=5>; rel=\"self\""
               },
               "X-Rate-Limit-Limit": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": 1000
-                  }
-                }
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "example": 1000
               },
               "X-Rate-Limit-Remaining": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": 964
-                  }
-                }
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "example": 964
               },
               "X-Rate-Limit-Reset": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": 3553
-                  }
-                }
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "example": 3553
               }
             },
             "content": {
@@ -4617,7 +4564,7 @@
                   {
                     "project_id": "ee4j.batch",
                     "name": "Jakarta Batch",
-                    "scope": "<p><strong>Project Scope:&nbsp; </strong>The Jakarta Batch project defines and maintains the Jakarta Batch specification and related artifacts.</p>\n\n\n<p><strong>Specification Scope: &nbsp;&nbsp;</strong> Jakarta Batch describes a means for developing, executing and managing batch processes in Jakarta EE applications.</p>\n\n",
+                    "scope": "<p><strong>Project Scope:&nbsp; </strong>The Jakarta Batch project defines and maintains the Jakarta Batch specification and related artifacts.</p>\n<p><strong>Specification Scope: &nbsp;&nbsp;</strong> Jakarta Batch describes a means for developing, executing and managing batch processes in Jakarta EE applications.</p>\n\n",
                     "url": "https://projects.eclipse.org/projects/ee4j.batch",
                     "logo": "",
                     "github_repos": [
@@ -4682,19 +4629,18 @@
             "description": "The PMI production server"
           }
         ],
-        "description": "### Overview\nRetrieve information for a specific project\n### Result definition\n+ **project_id:** ID of the project\n+ **name:** Name of the project\n+ **scope:** Scope of the project\n+ **url:** Url of the project on projects.eclipse.org\n+ **logo:** Logo of the project\n+ **github_repos:** Github Repository of the project\n+ **contributors:** List of contributors of the project\n+ **committers:** List of committers of the project\n+ **working_groups:** Working Groups associated to this project\n+ **spec_project_working_group:** Identifies this project as a specification project and to which working group it is associated to",
+        "description": "### Overview\n\nRetrieve information for a specific project\n\n**Note** that every dots in a project id needs to be changed to an underscore\n\n### Examples: \n\n* https://projects.eclipse.org/api/projects/technology_dash\n* https://projects.eclipse.org/api/projects/ecd_che",
         "operationId": "RetrieveAProject",
         "parameters": [
           {
             "name": "project_id",
             "in": "path",
-            "description": "ID of the project",
+            "description": "ID of the project.",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -4703,34 +4649,28 @@
             "description": "",
             "headers": {
               "X-Rate-Limit-Limit": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": 1000
-                  }
-                }
+                "description": "Test 1",
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "example": 1000
               },
               "X-Rate-Limit-Remaining": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": 964
-                  }
-                }
+                "description": "Test 2",
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "example": 964
               },
               "X-Rate-Limit-Reset": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": 3553
-                  }
-                }
+                "description": "Test 3",
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "example": 3553
               }
             },
             "content": {
@@ -4868,18 +4808,6 @@
       },
       "FetchProjectsresponse": {
         "title": "FetchProjectsresponse",
-        "required": [
-          "project_id",
-          "name",
-          "scope",
-          "url",
-          "logo",
-          "github_repos",
-          "contributors",
-          "committers",
-          "working_groups",
-          "spec_project_working_group"
-        ],
         "type": "object",
         "properties": {
           "project_id": {
@@ -5055,18 +4983,6 @@
       },
       "RetrieveaProjectresponse": {
         "title": "RetrieveaProjectresponse",
-        "required": [
-          "project_id",
-          "name",
-          "scope",
-          "url",
-          "logo",
-          "github_repos",
-          "contributors",
-          "committers",
-          "working_groups",
-          "spec_project_working_group"
-        ],
         "type": "object",
         "properties": {
           "project_id": {
