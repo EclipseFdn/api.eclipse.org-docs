@@ -3717,6 +3717,9 @@ paths:
       tags:
       - Projects
       summary: Fetch Projects
+      servers:
+        - url: https://projects.eclipse.org
+          description: The PMI production server
       description: >-
         ### Overview
   
@@ -3855,7 +3858,7 @@ paths:
         Retrieve information for a specific project
 
 
-        **Note** that every dots in a project id needs to be changed to an underscore
+        **Note** that all dots in a project id need to be changed to an underscore
 
 
         ### Examples: 
