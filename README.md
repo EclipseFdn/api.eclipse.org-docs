@@ -2,8 +2,6 @@
 
 This project describes the resources that make up the official Eclipse Foundation REST API.
 
-[![Build Status](https://travis-ci.org/EclipseFdn/api.eclipse.org-docs.svg?branch=master)](https://travis-ci.org/EclipseFdn/api.eclipse.org-docs)
-
 ## Links
 
 - [SwaggerUI](https://eclipsefdn.github.io/api.eclipse.org-docs/swagger-ui/)
