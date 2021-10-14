@@ -1,5 +1,12 @@
 # Eclipse Api Documentation
 
+---
+**NOTE**
+
+This project was migrated to [Eclipse Gitlab](https://gitlab.eclipse.org/eclipsefdn/it/api/api.eclipse.org-docs) on October 14, 2021.
+
+---
+
 This project describes the resources that make up the official Eclipse Foundation REST API.
 
 ## Links
